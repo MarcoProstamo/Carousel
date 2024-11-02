@@ -1,0 +1,75 @@
+/* ! Reset */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ! Layout */
+
+.container {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+
+  min-width: 400px;
+  max-width: 8000px;
+
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.control-container {
+  display: flex;
+  justify-content: center;
+
+  column-gap: 0.5rem;
+  align-items: center;
+
+  padding-bottom: 0.5rem;
+}
+
+/* # Jumbo Section */
+
+.control-container i {
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.jumbo-img {
+  max-width: 400px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border-bottom: 10rem;
+  flex-grow: 0;
+}
+
+/* # Preview Section */
+
+.preview-imgs {
+  display: flex;
+  justify-content: center;
+  column-gap: 2rem;
+}
+
+.preview-img {
+  max-width: 100px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  filter: grayscale(1);
+}
+
+/* # Utils */
+
+.preview-img.active {
+  filter: grayscale(0);
+}
