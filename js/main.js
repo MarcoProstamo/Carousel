@@ -8,6 +8,8 @@ const nextImg = document.querySelector("#nextImg");
 let currentImgIndex = 0;
 
 // # Event Listener
+
+// * Go Previous Image Via Arrow
 prevImg.addEventListener("click", () => {
   previewImgs[currentImgIndex].classList.remove("active");
   !currentImgIndex
@@ -17,6 +19,7 @@ prevImg.addEventListener("click", () => {
   jumboImg.src = `./img/img-0${currentImgIndex + 1}.jpg`;
 });
 
+// * Go Next Image Via Arrow
 nextImg.addEventListener("click", () => {
   previewImgs[currentImgIndex].classList.remove("active");
 
@@ -26,4 +29,14 @@ nextImg.addEventListener("click", () => {
 
   previewImgs[currentImgIndex].classList.add("active");
   jumboImg.src = `./img/img-0${currentImgIndex + 1}.jpg`;
+});
+
+// * Change Image by Clicking the Preview
+previewImgs.forEach((previewImg, indexImg) => {
+  previewImg.addEventListener("click", () => {
+    previewImgs[currentImgIndex].classList.remove("active");
+    currentImgIndex = indexImg;
+    previewImgs[currentImgIndex].classList.add("active");
+    jumboImg.src = `./img/img-0${currentImgIndex + 1}.jpg`;
+  });
 });
