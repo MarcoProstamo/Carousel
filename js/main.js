@@ -1,4 +1,5 @@
 // # Selecting DOM Elements
+const container = document.querySelector("#container");
 const jumboImg = document.querySelector("#jumboImg");
 const previewImgs = document.querySelectorAll("#previewImg");
 const prevImg = document.querySelector("#prevImg");
@@ -42,7 +43,8 @@ previewImgs.forEach((previewImg, indexImg) => {
 });
 
 // # Autoplay
-setInterval(() => {
+let autoPlay;
+autoPlay = setInterval(() => {
   previewImgs[currentImgIndex].classList.remove("active");
   currentImgIndex >= previewImgs.length - 1
     ? (currentImgIndex = 0)
@@ -50,3 +52,18 @@ setInterval(() => {
   previewImgs[currentImgIndex].classList.add("active");
   jumboImg.src = `./img/img-0${currentImgIndex + 1}.jpg`;
 }, 2000);
+
+container.addEventListener("mouseover", () => {
+  clearInterval(autoPlay);
+});
+
+container.addEventListener("mouseleave", () => {
+  autoPlay = setInterval(() => {
+    previewImgs[currentImgIndex].classList.remove("active");
+    currentImgIndex >= previewImgs.length - 1
+      ? (currentImgIndex = 0)
+      : currentImgIndex++;
+    previewImgs[currentImgIndex].classList.add("active");
+    jumboImg.src = `./img/img-0${currentImgIndex + 1}.jpg`;
+  }, 2000);
+});
