@@ -40,3 +40,13 @@ previewImgs.forEach((previewImg, indexImg) => {
     jumboImg.src = `./img/img-0${currentImgIndex + 1}.jpg`;
   });
 });
+
+// # Autoplay
+setInterval(() => {
+  previewImgs[currentImgIndex].classList.remove("active");
+  currentImgIndex >= previewImgs.length - 1
+    ? (currentImgIndex = 0)
+    : currentImgIndex++;
+  previewImgs[currentImgIndex].classList.add("active");
+  jumboImg.src = `./img/img-0${currentImgIndex + 1}.jpg`;
+}, 2000);
